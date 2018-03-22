@@ -3,12 +3,16 @@ package com.peretti.tdeecalculator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     public Spinner spinnerAttivita, spinnerSesso;
     public TextView valoreTDEE, valTDEE5, valTDEE10, valTDEE15;
     public Integer gl;
+    public RadioGroup radioGroup;
+    public TextView labelTDEE, labelTDEE5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +30,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         calcola = (Button) findViewById(R.id.calcola);
-        gainBtn = (Button) findViewById(R.id.gainBtn);
-        loseBtn = (Button) findViewById(R.id.loseBtn);
         spinnerSesso = (Spinner) findViewById(R.id.spinnerSesso);
         spinnerAttivita = (Spinner) findViewById(R.id.spinnerAttivita);
+
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup2);
+        labelTDEE = (TextView) findViewById(R.id.labelTDEE);
+        labelTDEE5 = (TextView) findViewById(R.id.labelTDEE5);
+
+        labelTDEE.setVisibility(View.INVISIBLE);
+        labelTDEE5.setVisibility(View.INVISIBLE);
 
         valoreAltezza = (EditText) findViewById(R.id.valoreAltezza);
         valorePeso = (EditText) findViewById(R.id.valorePeso);
@@ -36,8 +47,10 @@ public class MainActivity extends AppCompatActivity {
         valTDEE5 = (TextView) findViewById(R.id.valTDEE5);
         valTDEE10 = (TextView) findViewById(R.id.valTDEE10);
         valTDEE15 =  (TextView) findViewById(R.id.valTDEE15);
-        gainBtn.setOnClickListener(new setGain());
-        loseBtn.setOnClickListener(new setLose());
+
+
+
+
         calcola.setOnClickListener(new CalcolaTDEE());
     }
     private class setGain implements View.OnClickListener {
@@ -56,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
     private class CalcolaTDEE implements View.OnClickListener {
         @Override
         public void onClick(View view) {
+
+
                 double BMR, TDEE, TDEE5, TDEE10, TDEE15;
                 TDEE=0;
                 TDEE5=0;
@@ -65,7 +80,12 @@ public class MainActivity extends AppCompatActivity {
                 String la = spinnerAttivita.getSelectedItem().toString();
                 Integer eta = Integer.parseInt(valoreEta.getText().toString() );
                 Integer peso = Integer.parseInt(valorePeso.getText().toString() );
-                Integer altezza = Integer.parseInt(valoreAltezza.getText().toString() );
+                Integer altezza = Integer.parseInt(valoreAltezza.getText().toString());
+
+                int radioButtonID = radioGroup.getCheckedRadioButtonId();
+                View radioButton = radioGroup.findViewById(radioButtonID);
+                int indexRadioGroup = radioGroup.indexOfChild(radioButton);
+
                 if (mf.equals("Maschio")){
                     BMR = 66 + (13.7*peso) + (5*altezza) - (6.8*eta);
                 } else {
@@ -76,19 +96,26 @@ public class MainActivity extends AppCompatActivity {
                 if (la.equals("Moderato")){TDEE = BMR * 1.55;}
                 if (la.equals("Molto Allenato")){TDEE = BMR * 1.725;}
                 if (la.equals("Estremamente Allenato")){TDEE = BMR * 1.9;}
-                if (gl==1) {
+
+
+                if (indexRadioGroup==1) {
                     TDEE5 = TDEE + (TDEE / 100 * 5);
                     TDEE10 = TDEE + (TDEE / 100 * 10);
                     TDEE15 = TDEE + (TDEE / 100 * 15);
+                    labelTDEE5.setText("Ipercalorica al 5%");
                 }
-                if (gl==3){
+//                if (gl==0){
                    //
-                }
-                if (gl==2){
+  //              }
+                if (indexRadioGroup==0){
                     TDEE5 = TDEE - (TDEE / 100 * 5);
                     TDEE10 = TDEE - (TDEE / 100 * 10);
                     TDEE15 = TDEE - (TDEE / 100 * 15);
+                    labelTDEE5.setText("Ipocalorica al 5%");
                 }
+            labelTDEE.setVisibility(View.VISIBLE);
+            labelTDEE5.setVisibility(View.VISIBLE);
+
             valoreTDEE.setText(String.format("%.1f", TDEE ) );
             valTDEE5.setText(String.format("%.1f", TDEE5 ) );
             valTDEE5.setBackgroundColor(Color.parseColor("#90EE90"));

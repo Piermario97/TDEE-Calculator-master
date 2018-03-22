@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     TDEE10 = TDEE + (TDEE / 100 * 10);
                     TDEE15 = TDEE + (TDEE / 100 * 15);
                 }
-                if (gl==0){
+                if (gl==3){
                    //
                 }
                 if (gl==2){

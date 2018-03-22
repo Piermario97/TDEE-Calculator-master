@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">TDEE Calculator</string>
+
+
+
+    <string name="sceltaallenamento">Scegli il tuo livello</string>
+
+    <string-array name="arrayallenamento">
+        <item>Sedentario</item>
+        <item>Leggermente Attivo</item>
+        <item>Moderato</item>
+        <item>Molto Allenato</item>
+        <item>Estremamente Allenato</item>
+    </string-array>
+
+    <string name="sceltasesso"> </string>
+    <string-array name="arraysesso">
+        <item>Maschio</item>
+        <item>Femmina</item>
+    </string-array>
+
+
+</resources>

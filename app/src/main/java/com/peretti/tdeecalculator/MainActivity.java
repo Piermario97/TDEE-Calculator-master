@@ -1,5 +1,6 @@
 package com.peretti.tdeecalculator;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.graphics.Color;
@@ -53,10 +54,14 @@ public class MainActivity extends AppCompatActivity {
         valTDEE10 = (TextView) findViewById(R.id.valTDEE10);
         valTDEE15 =  (TextView) findViewById(R.id.valTDEE15);
 
-
-
-
         calcola.setOnClickListener(new CalcolaTDEE());
+        valTDEE15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity2();
+            }
+        });
+
     }
     private class setGain implements View.OnClickListener {
         @Override
@@ -69,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
         public void onClick (View view){
             gl = 2;
         }
+    }
+    public void openActivity2(){
+        Intent intent = new Intent(this, Activity2.class);
+        startActivity(intent);
     }
 
     private class CalcolaTDEE implements View.OnClickListener {

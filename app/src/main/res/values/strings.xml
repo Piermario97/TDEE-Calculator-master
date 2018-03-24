@@ -2,7 +2,6 @@
     <string name="app_name">TDEE Calculator</string>
 
 
-
     <string name="sceltaallenamento">Scegli il tuo livello</string>
 
     <string-array name="arrayallenamento">
@@ -18,6 +17,12 @@
         <item>Maschio</item>
         <item>Femmina</item>
     </string-array>
+    <string name="title_activity_2">Activity2</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 
 
 </resources>

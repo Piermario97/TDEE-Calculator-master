@@ -125,7 +125,7 @@
         android:id="@+id/calcola"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="CALCOLA"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -142,7 +142,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.717"
+        app:layout_constraintVertical_bias="0.751"
         tools:text="1999" />
 
     <TextView
@@ -155,7 +155,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.788"
+        app:layout_constraintVertical_bias="0.821"
         tools:text="2012" />
 
     <TextView
@@ -168,7 +168,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.858"
+        app:layout_constraintVertical_bias="0.898"
         tools:text="1013" />
 
     <TextView
@@ -181,7 +181,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933"
+        app:layout_constraintVertical_bias="0.971"
         tools:text="2214" />
 
     <TextView
@@ -204,10 +204,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="6dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Ipercalorica al 5%"
         android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labelTDEE" />
@@ -237,6 +237,43 @@
             android:layout_weight="1"
             android:text="Mettere Peso" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/labelTDEE10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="20dp"
+        android:text="Ipercalorica al 10%"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelTDEE5" />
+
+    <TextView
+        android:id="@+id/labelTDEE15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="20dp"
+        android:text="Ipercalorica al 15%"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelTDEE10" />
+
+    <TextView
+        android:id="@+id/labelKcal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Kcal / giorno"
+        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
 
 </android.support.constraint.ConstraintLayout>

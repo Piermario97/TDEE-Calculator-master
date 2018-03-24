@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TDEE-Calculator-master.iml" filepath="$PROJECT_DIR$/TDEE-Calculator-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TDEE-Calculator-master.iml" filepath="$PROJECT_DIR$/TDEE-Calculator-master.iml" />
       <module fileurl="file://C:\Users\piermario\Downloads\TDEE-Calculator-master\TDEECalculator.iml" filepath="C:\Users\piermario\Downloads\TDEE-Calculator-master\TDEECalculator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

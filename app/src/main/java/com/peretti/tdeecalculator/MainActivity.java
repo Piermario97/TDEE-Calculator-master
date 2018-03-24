@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public TextView valoreTDEE, valTDEE5, valTDEE10, valTDEE15;
     public Integer gl;
     public RadioGroup radioGroup;
-    public TextView labelTDEE, labelTDEE5;
+    public TextView labelTDEE, labelTDEE5, labelTDEE10, labelTDEE15, labelKcal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +36,14 @@ public class MainActivity extends AppCompatActivity {
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup2);
         labelTDEE = (TextView) findViewById(R.id.labelTDEE);
         labelTDEE5 = (TextView) findViewById(R.id.labelTDEE5);
-
+        labelTDEE10 = (TextView) findViewById(R.id.labelTDEE10);
+        labelTDEE15 = (TextView) findViewById(R.id.labelTDEE15);
+        labelKcal = (TextView) findViewById(R.id.labelKcal);
         labelTDEE.setVisibility(View.INVISIBLE);
         labelTDEE5.setVisibility(View.INVISIBLE);
+        labelTDEE10.setVisibility(View.INVISIBLE);
+        labelTDEE15.setVisibility(View.INVISIBLE);
+        labelKcal.setVisibility(View.INVISIBLE);
 
         valoreAltezza = (EditText) findViewById(R.id.valoreAltezza);
         valorePeso = (EditText) findViewById(R.id.valorePeso);
@@ -103,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
                     TDEE10 = TDEE + (TDEE / 100 * 10);
                     TDEE15 = TDEE + (TDEE / 100 * 15);
                     labelTDEE5.setText("Ipercalorica al 5%");
+                    labelTDEE10.setText("Ipercalorica al 10%");
+                    labelTDEE15.setText("Ipercalorica al 15%");
                 }
 //                if (gl==0){
                    //
@@ -112,14 +119,19 @@ public class MainActivity extends AppCompatActivity {
                     TDEE10 = TDEE - (TDEE / 100 * 10);
                     TDEE15 = TDEE - (TDEE / 100 * 15);
                     labelTDEE5.setText("Ipocalorica al 5%");
+                    labelTDEE10.setText("Ipocalorica al 10%");
+                    labelTDEE15.setText("Ipocalorica al 15%");
                 }
             labelTDEE.setVisibility(View.VISIBLE);
             labelTDEE5.setVisibility(View.VISIBLE);
+            labelTDEE10.setVisibility(View.VISIBLE);
+            labelTDEE15.setVisibility(View.VISIBLE);
+            labelKcal.setVisibility(View.VISIBLE);
 
             valoreTDEE.setText(String.format("%.1f", TDEE ) );
             valTDEE5.setText(String.format("%.1f", TDEE5 ) );
             valTDEE5.setBackgroundColor(Color.parseColor("#90EE90"));
-            valTDEE10.setText(String.format("%.1f", TDEE10 ) );
+            valTDEE10.setText(String.format("%.1f", TDEE10));
             valTDEE10.setBackgroundColor(Color.parseColor("#FFFF00"));
             valTDEE15.setText(String.format("%.1f", TDEE15 ) );
             valTDEE15.setBackgroundColor(Color.parseColor("#FF0000"));

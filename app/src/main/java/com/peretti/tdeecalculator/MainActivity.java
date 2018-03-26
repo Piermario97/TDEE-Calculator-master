@@ -76,7 +76,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void openActivity2(){
+        String val = valTDEE15.getText().toString();
         Intent intent = new Intent(this, Activity2.class);
+        intent.putExtra("tdeeval",val);
         startActivity(intent);
     }
 

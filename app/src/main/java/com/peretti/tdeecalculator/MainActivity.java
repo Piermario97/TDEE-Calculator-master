@@ -85,8 +85,6 @@ public class MainActivity extends AppCompatActivity {
     private class CalcolaTDEE implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-
-
                 double BMR, TDEE, TDEE5, TDEE10, TDEE15;
                 TDEE=0;
                 TDEE5=0;

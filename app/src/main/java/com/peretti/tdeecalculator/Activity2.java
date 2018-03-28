@@ -16,17 +16,21 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 public class Activity2 extends AppCompatActivity {
-    SeekBar valCarbs;
+    public SeekBar valCarbs;
+    public TextView labelCarbs, labelTDEEs, labelProte, valTDEEs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
         Intent intent = getIntent();
         String txtData = intent.getExtras().getString("tdeeval","");
-        TextView valTDEEs = (TextView) findViewById(R.id.valTDEEs);
+        valCarbs = (SeekBar)findViewById(R.id.sliCarbs);
+        labelCarbs = (TextView) findViewById(R.id.labelCarbs);
+        valTDEEs = (TextView) findViewById(R.id.valTDEEs);
+        labelProte = (TextView) findViewById(R.id.labelProte);
         valTDEEs.setText(txtData);
 
-        valCarbs=(SeekBar)findViewById(R.id.sliCarbs);
+
         // perform seek bar change listener event used for getting the progress value
         valCarbs.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressChangedValue = 0;

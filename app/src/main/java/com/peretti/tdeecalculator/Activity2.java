@@ -16,18 +16,21 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 public class Activity2 extends AppCompatActivity {
-    public SeekBar valCarbs;
-    public TextView labelCarbs, labelTDEEs, labelProte, valTDEEs;
+    public SeekBar valCarbs, valProte, valFats;
+    public TextView labelCarbs, labelTDEEs, labelProte, labelFats, valTDEEs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
         Intent intent = getIntent();
         String txtData = intent.getExtras().getString("tdeeval","");
+        valProte = (SeekBar)findViewById(R.id.sliProte);
         valCarbs = (SeekBar)findViewById(R.id.sliCarbs);
+        valFats = (SeekBar)findViewById(R.id.sliFats);
         labelCarbs = (TextView) findViewById(R.id.labelCarbs);
         valTDEEs = (TextView) findViewById(R.id.valTDEEs);
         labelProte = (TextView) findViewById(R.id.labelProte);
+        labelFats = (TextView)findViewById(R.id.labelFats);
         valTDEEs.setText(txtData);
 
 

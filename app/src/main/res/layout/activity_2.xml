@@ -66,5 +66,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labelCarbs" />
 
+    <SeekBar
+        android:id="@+id/sliProte"
+        android:layout_width="193dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.354"
+        app:layout_constraintStart_toEndOf="@+id/labelProte"
+        app:layout_constraintTop_toBottomOf="@+id/sliCarbs" />
+
+    <TextView
+        android:id="@+id/labelFats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Grassi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelProte" />
+
+    <SeekBar
+        android:id="@+id/sliFats"
+        android:layout_width="195dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toEndOf="@+id/labelFats"
+        app:layout_constraintTop_toBottomOf="@+id/sliProte" />
+
 
 </android.support.constraint.ConstraintLayout>

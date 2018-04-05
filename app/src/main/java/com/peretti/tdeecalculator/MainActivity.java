@@ -77,8 +77,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openActivity2(){
         String val = valTDEE15.getText().toString();
+        String peso = valorePeso.getText().toString();
         Intent intent = new Intent(this, Activity2.class);
-        intent.putExtra("tdeeval",val);
+        Bundle extras = new Bundle();
+        extras.putString("tdeeval",val);
+        extras.putString("peso",peso);
+        intent.putExtras(extras);
         startActivity(intent);
     }
 

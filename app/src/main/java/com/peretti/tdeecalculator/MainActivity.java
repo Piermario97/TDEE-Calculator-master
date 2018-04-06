@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public Integer gl;
     public RadioGroup radioGroup;
     public TextView labelTDEE, labelTDEE5, labelTDEE10, labelTDEE15, labelKcal;
+    public double TDEE15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         valTDEE15 =  (TextView) findViewById(R.id.valTDEE15);
 
         calcola.setOnClickListener(new CalcolaTDEE());
+
         valTDEE15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,12 +78,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void openActivity2(){
-        String val = valTDEE15.getText().toString();
-        String peso = valorePeso.getText().toString();
+        int val = (int) TDEE15;
+        int peso = Integer.parseInt(valorePeso.getText().toString());
         Intent intent = new Intent(this, Activity2.class);
         Bundle extras = new Bundle();
-        extras.putString("tdeeval",val);
-        extras.putString("peso",peso);
+
+        extras.putInt("tdeeval",val);
+        extras.putInt("peso",peso);
         intent.putExtras(extras);
         startActivity(intent);
     }
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     private class CalcolaTDEE implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-                double BMR, TDEE, TDEE5, TDEE10, TDEE15;
+                double BMR, TDEE,TDEE5, TDEE10;
                 TDEE=0;
                 TDEE5=0;
                 TDEE10=0;

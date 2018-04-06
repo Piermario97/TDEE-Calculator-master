@@ -19,6 +19,8 @@ public class Activity2 extends AppCompatActivity {
     public SeekBar valCarbs, valProte;
     public TextView labelCarbs, labelTDEEs, labelProte, labelFats, valTDEEs, valPeso, valFats;
     public RadioGroup radioFats;
+    public Button btnCalcola;
+    public int valpeso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +28,8 @@ public class Activity2 extends AppCompatActivity {
         setContentView(R.layout.activity_2);
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        String txtData = extras.getString("tdeeval","");
-        String txtData2 = extras.getString("peso","");
+        int valtdee = extras.getInt("tdeeval");
+        valpeso = extras.getInt("peso");
         radioFats = (RadioGroup) findViewById(R.id.radioFats);
         valProte = (SeekBar)findViewById(R.id.sliProte);
         valCarbs = (SeekBar)findViewById(R.id.sliCarbs);
@@ -37,19 +39,14 @@ public class Activity2 extends AppCompatActivity {
         valFats = (TextView) findViewById(R.id.valFats);
         labelProte = (TextView) findViewById(R.id.labelProte);
         labelFats = (TextView)findViewById(R.id.labelFats);
-        valTDEEs.setText(txtData);
-        valPeso.setText(txtData2);
+        btnCalcola = (Button)findViewById(R.id.btnCalcola);
 
-        int radioButtonID = radioFats.getCheckedRadioButtonId();
-        View radioButton = radioFats.findViewById(radioButtonID);
-        int indexRadioGroup = radioFats.indexOfChild(radioButton);
+        Log.i("TDEE15", String.valueOf(valtdee));
+        valTDEEs.setText(""+valtdee);
+        valPeso.setText(""+valpeso);
 
-        if (indexRadioGroup==0) {
-            double peso = Integer.parseInt(txtData2.toString());
-            double Fats;
-            Fats = peso*0.75;
-            valFats.setText(""+Fats);
-        }
+        btnCalcola.setOnClickListener(new calcFats());
+
         // perform seek bar change listener event used for getting the progress value
         valCarbs.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressChangedValue = 0;
@@ -64,5 +61,20 @@ public class Activity2 extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public class calcFats implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            int radioButtonID = radioFats.getCheckedRadioButtonId();
+            View radioButton = radioFats.findViewById(radioButtonID);
+            int indexRadioGroup = radioFats.indexOfChild(radioButton);
+            double[] moltiplicatori = {1.5,1.6};
+            if (indexRadioGroup==0) {
+                double fats;
+                fats = valpeso*moltiplicatori[indexRadioGroup];
+                valFats.setText(""+fats);
+            }
+        }
     }
 }

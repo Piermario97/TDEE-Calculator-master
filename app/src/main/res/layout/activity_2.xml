@@ -32,39 +32,15 @@
         app:layout_constraintStart_toEndOf="@+id/labelTDEEs"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <SeekBar
-        android:id="@+id/sliCarbs"
-        android:layout_width="193dp"
-        android:layout_height="17dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
-        android:max="100"
-        android:progress="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
-        app:layout_constraintStart_toEndOf="@+id/labelCarbs"
-        app:layout_constraintTop_toBottomOf="@+id/valTDEEs" />
-
-    <TextView
-        android:id="@+id/labelCarbs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Carboidrati"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelPeso" />
-
     <TextView
         android:id="@+id/labelProte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:text="Proteine (grammi per kg di peso corporeo)"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelCarbs" />
+        app:layout_constraintTop_toBottomOf="@+id/labelPeso" />
 
     <RadioGroup
         android:id="@+id/radioPro"

@@ -32,7 +32,6 @@ public class Activity2 extends AppCompatActivity {
         radioFats = (RadioGroup) findViewById(R.id.radioFats);
         radioPro = (RadioGroup) findViewById(R.id.radioPro);
         valCarbs = (TextView)findViewById(R.id.valCarbs);
-        labelCarbs = (TextView) findViewById(R.id.labelCarbs);
         valTDEEs = (TextView) findViewById(R.id.valTDEEs);
         valPeso = (TextView) findViewById(R.id.valPeso);
         valFats = (TextView) findViewById(R.id.valFats);

@@ -69,12 +69,11 @@ public class Activity2 extends AppCompatActivity {
             int radioButtonID = radioFats.getCheckedRadioButtonId();
             View radioButton = radioFats.findViewById(radioButtonID);
             int indexRadioGroup = radioFats.indexOfChild(radioButton);
-            double[] moltiplicatori = {1.5,1.6};
-            if (indexRadioGroup==0) {
+            double[] moltiplicatori = {0.5, 0.75, 1, 1.25, 1.5};
                 double fats;
                 fats = valpeso*moltiplicatori[indexRadioGroup];
                 valFats.setText(""+fats);
-            }
+
         }
     }
 }

@@ -62,28 +62,64 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
-        android:text="Proteine"
+        android:text="Proteine (grammi per kg di peso corporeo)"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labelCarbs" />
 
-    <SeekBar
-        android:id="@+id/sliProte"
-        android:layout_width="193dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="16dp"
+    <RadioGroup
+        android:id="@+id/radioPro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
-        app:layout_constraintStart_toEndOf="@+id/labelProte"
-        app:layout_constraintTop_toBottomOf="@+id/sliCarbs" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelProte">
+
+        <RadioButton
+            android:id="@+id/px0.75"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0.75" />
+
+        <RadioButton
+            android:id="@+id/px1"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1" />
+
+        <RadioButton
+            android:id="@+id/px1.25"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1.25" />
+
+        <RadioButton
+            android:id="@+id/px1.5"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1.5" />
+
+        <RadioButton
+            android:id="@+id/px2"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/labelFats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="64dp"
         android:text="Grassi (grammi per kg di peso corporeo)"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labelProte" />
@@ -94,7 +130,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -164,26 +199,62 @@
         app:layout_constraintTop_toBottomOf="@+id/valTDEEs" />
 
     <TextView
+        android:id="@+id/valCarbs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/valPro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalcola"
+        app:layout_constraintVertical_bias="0.216" />
+
+    <TextView
+        android:id="@+id/valPro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="112dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/valFats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioFats"
-        app:layout_constraintVertical_bias="0.815"
-        tools:layout_editor_absoluteX="146dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valPro"
+        app:layout_constraintVertical_bias="0.471" />
 
     <Button
         android:id="@+id/btnCalcola"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:text="CALCOLA"
-        app:layout_constraintTop_toBottomOf="@+id/radioFats"
-        tools:layout_editor_absoluteX="161dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioFats" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -16,11 +16,10 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 public class Activity2 extends AppCompatActivity {
-    public SeekBar valCarbs, valProte;
-    public TextView labelCarbs, labelTDEEs, labelProte, labelFats, valTDEEs, valPeso, valFats;
-    public RadioGroup radioFats;
+    public TextView labelCarbs, labelTDEEs, labelProte, labelFats, valTDEEs, valPeso, valFats, valPro, valCarbs;
+    public RadioGroup radioFats, radioPro;
     public Button btnCalcola;
-    public int valpeso;
+    public int valpeso, valtdee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +27,16 @@ public class Activity2 extends AppCompatActivity {
         setContentView(R.layout.activity_2);
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        int valtdee = extras.getInt("tdeeval");
+        valtdee = extras.getInt("tdeeval");
         valpeso = extras.getInt("peso");
         radioFats = (RadioGroup) findViewById(R.id.radioFats);
-        valProte = (SeekBar)findViewById(R.id.sliProte);
-        valCarbs = (SeekBar)findViewById(R.id.sliCarbs);
+        radioPro = (RadioGroup) findViewById(R.id.radioPro);
+        valCarbs = (TextView)findViewById(R.id.valCarbs);
         labelCarbs = (TextView) findViewById(R.id.labelCarbs);
         valTDEEs = (TextView) findViewById(R.id.valTDEEs);
         valPeso = (TextView) findViewById(R.id.valPeso);
         valFats = (TextView) findViewById(R.id.valFats);
+        valPro = (TextView) findViewById(R.id.valPro);
         labelProte = (TextView) findViewById(R.id.labelProte);
         labelFats = (TextView)findViewById(R.id.labelFats);
         btnCalcola = (Button)findViewById(R.id.btnCalcola);
@@ -46,21 +46,6 @@ public class Activity2 extends AppCompatActivity {
         valPeso.setText(""+valpeso);
 
         btnCalcola.setOnClickListener(new calcFats());
-
-        // perform seek bar change listener event used for getting the progress value
-        valCarbs.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            int progressChangedValue = 0;
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                progressChangedValue = progress;
-            }
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                //
-            }
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(Activity2.this, "Seek bar progress is :" + progressChangedValue,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     public class calcFats implements View.OnClickListener {
@@ -69,10 +54,29 @@ public class Activity2 extends AppCompatActivity {
             int radioButtonID = radioFats.getCheckedRadioButtonId();
             View radioButton = radioFats.findViewById(radioButtonID);
             int indexRadioGroup = radioFats.indexOfChild(radioButton);
-            double[] moltiplicatori = {0.5, 0.75, 1, 1.25, 1.5};
-                double fats;
-                fats = valpeso*moltiplicatori[indexRadioGroup];
-                valFats.setText(""+fats);
+
+            int radioButtonID2 = radioPro.getCheckedRadioButtonId();
+            View radioButton2 = radioPro.findViewById(radioButtonID2);
+            int indexRadioGroup2 = radioPro.indexOfChild(radioButton2);
+
+            double[] moltiplicatorip = {0.75, 1, 1.25, 1.5, 2};
+            double[] moltiplicatorif = {0.6, 0.8, 1, 1.2, 1.4};
+                int valr;
+
+                int fatsg, prog, carbsg;
+                int fatscal=0, procal=0, carbscal=0;
+                fatsg = (int)(valpeso*moltiplicatorif[indexRadioGroup]);
+                prog = (int)(valpeso*moltiplicatorip[indexRadioGroup2]);
+                fatscal = fatsg*9;
+                procal = prog*4;
+                valFats.setText("Grammi grassi: "+fatsg +"      calorie: "+fatscal);
+                valPro.setText("Grammi proteine: "+prog+"  calorie: "+procal);
+
+                valr = (valtdee-fatscal-procal);
+                carbscal = (valtdee-fatscal-procal);
+                carbsg = Math.round(carbscal/4);
+                valCarbs.setText("Grammi carboidrati: "+carbsg+"  calorie: "+carbscal);
+                Log.i("TDEErimanente", String.valueOf(valr));
 
         }
     }

@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     public RadioGroup radioGroup;
     public TextView labelTDEE, labelTDEE5, labelTDEE10, labelTDEE15, labelKcal;
     public double TDEE15;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,10 +59,29 @@ public class MainActivity extends AppCompatActivity {
         valTDEE15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openActivity2();
+                openActivity2(view);
             }
         });
 
+        valTDEE10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity2(view);
+            }
+        });
+
+        valTDEE5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity2(view);
+            }
+        });
+        valoreTDEE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity2(view);
+            }
+        });
     }
     private class setGain implements View.OnClickListener {
         @Override
@@ -77,8 +95,8 @@ public class MainActivity extends AppCompatActivity {
             gl = 2;
         }
     }
-    public void openActivity2(){
-        int val = (int) TDEE15;
+    public void openActivity2(View view){
+        int val = Integer.parseInt(((TextView) view).getText().toString());
         int peso = Integer.parseInt(valorePeso.getText().toString());
         Intent intent = new Intent(this, Activity2.class);
         Bundle extras = new Bundle();
@@ -93,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
                 double BMR, TDEE,TDEE5, TDEE10;
+                int rTD, rTD5, rTD10, rTD15;
                 TDEE=0;
                 TDEE5=0;
                 TDEE10=0;
@@ -144,12 +163,17 @@ public class MainActivity extends AppCompatActivity {
             labelTDEE15.setVisibility(View.VISIBLE);
             labelKcal.setVisibility(View.VISIBLE);
 
-            valoreTDEE.setText(String.format("%.1f", TDEE ) );
-            valTDEE5.setText(String.format("%.1f", TDEE5 ) );
+            rTD = (int) Math.round(TDEE);
+            rTD5 = (int) Math.round(TDEE5);
+            rTD10 = (int) Math.round(TDEE10);
+            rTD15 = (int) Math.round(TDEE15);
+
+            valoreTDEE.setText(""+rTD);
+            valTDEE5.setText(""+rTD5);
             valTDEE5.setBackgroundColor(Color.parseColor("#90EE90"));
-            valTDEE10.setText(String.format("%.1f", TDEE10));
+            valTDEE10.setText(""+rTD10);
             valTDEE10.setBackgroundColor(Color.parseColor("#FFFF00"));
-            valTDEE15.setText(String.format("%.1f", TDEE15 ) );
+            valTDEE15.setText(""+rTD15);
             valTDEE15.setBackgroundColor(Color.parseColor("#FF0000"));
         }
     }

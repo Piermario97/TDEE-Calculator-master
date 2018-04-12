@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class Activity2 extends AppCompatActivity {
     public TextView labelCarbs, labelTDEEs, labelProte, labelFats, valTDEEs, valPeso, valFats, valPro, valCarbs;
     public RadioGroup radioFats, radioPro;
-    public Button btnCalcola;
+    public Button btnCalcola, btnConf;
     public int valpeso, valtdee;
 
     @Override
@@ -39,6 +39,7 @@ public class Activity2 extends AppCompatActivity {
         labelProte = (TextView) findViewById(R.id.labelProte);
         labelFats = (TextView)findViewById(R.id.labelFats);
         btnCalcola = (Button)findViewById(R.id.btnCalcola);
+        btnConf = (Button)findViewById(R.id.btnConf);
 
         Log.i("TDEE15", String.valueOf(valtdee));
         valTDEEs.setText(""+valtdee);

@@ -45,18 +45,21 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private void registerUser(){
         String email = editTextMail.getText().toString().trim();
         String password = editTextPass.getText().toString().trim();
-
-        if (TextUtils.isEmpty(email)){
-            //email empty
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_SHORT).show();
-            // stop the function
-            return;
-        }
-        if (TextUtils.isEmpty(password)){
-            //password empty
-            Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
-            // stop the function
-            return;
+        if (password.length() < 6 )
+            Toast.makeText(this, "Please enter at least 6 characters", Toast.LENGTH_SHORT).show();
+        else {
+            if (TextUtils.isEmpty(email)) {
+                //email empty
+                Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
+                // stop the function
+                return;
+            }
+            if (TextUtils.isEmpty(password)) {
+                //password empty
+                Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
+                // stop the function
+                return;
+            }
         }
         progressDialog.setMessage("Registering user...");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);

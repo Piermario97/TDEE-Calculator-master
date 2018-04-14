@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.graphics.Color;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     public Button calcola, gainBtn, loseBtn, btnLogout;
     public EditText valorePeso, valoreAltezza, valoreEta;
@@ -98,9 +100,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     // NELL ONCLICK DEL PULSANTE LOGOUT
-            // firebaseAuth.signOut();
-            // finish();
-            //  startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+
 
     private class setGain implements View.OnClickListener {
         @Override
@@ -197,5 +197,24 @@ public class MainActivity extends AppCompatActivity{
             valTDEE15.setText(""+rTD15);
             valTDEE15.setBackgroundColor(Color.parseColor("#FF0000"));
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    // handle button activities
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.btnLogout) {
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

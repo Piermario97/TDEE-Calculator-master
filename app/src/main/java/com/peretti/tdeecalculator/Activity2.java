@@ -49,12 +49,12 @@ public class Activity2 extends AppCompatActivity {
         btnConf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openLoginAct(view);
+                openRegisterAct(view);
             }
         });
     }
-    public void openLoginAct(View view){
-        Intent myIntent = new Intent(Activity2.this, LoginActivity.class);
+    public void openRegisterAct(View view){
+        Intent myIntent = new Intent(Activity2.this, RegisterActivity.class);
         myIntent.putExtra("key", ""); //Optional parameters
         Activity2.this.startActivity(myIntent);
     }

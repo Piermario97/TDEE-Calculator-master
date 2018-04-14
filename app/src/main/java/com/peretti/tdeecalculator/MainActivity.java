@@ -13,11 +13,14 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
-    public Button calcola, gainBtn, loseBtn;
+    public Button calcola, gainBtn, loseBtn, btnLogout;
     public EditText valorePeso, valoreAltezza, valoreEta;
     public Spinner spinnerAttivita, spinnerSesso;
     public TextView valoreTDEE, valTDEE5, valTDEE10, valTDEE15;
@@ -25,12 +28,15 @@ public class MainActivity extends AppCompatActivity {
     public RadioGroup radioGroup;
     public TextView labelTDEE, labelTDEE5, labelTDEE10, labelTDEE15, labelKcal;
     public double TDEE15;
+    private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         calcola = (Button) findViewById(R.id.calcola);
+        btnLogout = (Button) findViewById(R.id.btnLogout);
         spinnerSesso = (Spinner) findViewById(R.id.spinnerSesso);
         spinnerAttivita = (Spinner) findViewById(R.id.spinnerAttivita);
 
@@ -55,6 +61,13 @@ public class MainActivity extends AppCompatActivity {
         valTDEE15 =  (TextView) findViewById(R.id.valTDEE15);
 
         calcola.setOnClickListener(new CalcolaTDEE());
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser()==null){
+            finish();
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+        }
+        FirebaseUser user = firebaseAuth.getCurrentUser();
 
         valTDEE15.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,18 +96,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    // NELL ONCLICK DEL PULSANTE LOGOUT
+            // firebaseAuth.signOut();
+            // finish();
+            //  startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+
     private class setGain implements View.OnClickListener {
         @Override
         public void onClick (View view){
             gl = 1;
         }
     }
+
     private class setLose implements View.OnClickListener {
         @Override
         public void onClick (View view){
             gl = 2;
         }
     }
+
     public void openActivity2(View view){
         int val = Integer.parseInt(((TextView) view).getText().toString());
         int peso = Integer.parseInt(valorePeso.getText().toString());

@@ -46,6 +46,17 @@ public class Activity2 extends AppCompatActivity {
         valPeso.setText(""+valpeso);
 
         btnCalcola.setOnClickListener(new calcFats());
+        btnConf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLoginAct(view);
+            }
+        });
+    }
+    public void openLoginAct(View view){
+        Intent myIntent = new Intent(Activity2.this, LoginActivity.class);
+        myIntent.putExtra("key", ""); //Optional parameters
+        Activity2.this.startActivity(myIntent);
     }
 
     public class calcFats implements View.OnClickListener {

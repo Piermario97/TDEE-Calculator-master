@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "897417924586",
+    "firebase_url": "https://smartdiet-ef75d.firebaseio.com",
+    "project_id": "smartdiet-ef75d",
+    "storage_bucket": "smartdiet-ef75d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897417924586:android:b27c1fe6c27b188d",
+        "android_client_info": {
+          "package_name": "com.peretti.tdeecalculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897417924586-t7kmk0t0h9hchaksp7d56vh9fn9prqns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPP9EHD4wN8gvSrpAS5J2YqDR5ig2Yl1E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
